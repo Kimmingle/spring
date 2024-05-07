@@ -1,0 +1,7 @@
+package com.spring4.dto;
+
+public class Store {
+	private int storeNum;
+	private String storeName;
+	
+}

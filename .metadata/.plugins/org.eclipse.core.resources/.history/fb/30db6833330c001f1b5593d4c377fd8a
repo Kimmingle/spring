@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+		
+		
+		
+		
+		
+	<!-- 인스턴스 이름 store4 (bean으로 비어있는 Store객체가 만들어짐)빈 생성자 사용..? -->
+	<bean id="store1" class="com.spring1.dto.Store"></bean>
+		
+	<!-- 요소 들어간 생성자로 주입  -->
+	<bean id="store2" class="com.spring1.dto.Store">
+		<constructor-arg name="storeNum" value="1"></constructor-arg>
+		<constructor-arg name="storeName" value="HomPlus"></constructor-arg>
+	</bean>
+	
+	<!-- 요소 들어간 생성자로 주입3 (기능은 같음 걍 value를 따로 쓸 수 있다.)  -->
+	<bean id="store3" class="com.spring1.dto.Store">
+		<constructor-arg name="storeNum">
+			<value>1</value>
+		</constructor-arg>
+		<constructor-arg name="storeName">
+			<value>HomPlus</value>
+		</constructor-arg>
+	</bean>
+	
+	
+	<!-- 수정자 주입 -->
+	<bean id="store4" class="com.spring1.dto.Store">
+		<property name="storeNum" value="3"></property>
+		<property name="storeName" value="Emart"></property>
+	</bean>
+		
+		
+	</beans>
+		
+		
+		
