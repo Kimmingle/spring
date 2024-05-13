@@ -5,4 +5,4 @@ insert into sample values (2, '샘플2', default);
 insert into sample values (3, '샘플3', default);
 commit;
 
-s
+select num from (select * from sample order by num desc) where rownum=1;

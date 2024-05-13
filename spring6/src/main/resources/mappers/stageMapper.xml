@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+"-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="stage">
+	<select id="getStoreList" resultType="com.spring5.dto.Store">
+		select * from sample
+	</select>	
+	<select id="getStore" resultType="com.spring5.dto.Store">
+		select * from sample where num=#{num}
+	</select>	
+	<insert id="insStore">
+		insert into stage values (#{storeNum}, #{storeName})
+	</insert>
+	<update id="upStore">
+		update sample set title=#{title} where num=#{num}
+	</update>
+	<delete id="delStore">
+		delete from sample where num=#{num}
+	</delete>
+</mapper>

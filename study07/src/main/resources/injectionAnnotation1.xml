@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd 
+       http://www.springframework.org/schema/context 
+       http://www.springframework.org/schema/context/spring-context.xsd">
+       
+       
+       
+   	<bean id="obj1" class="com.spring5.test.InjectionAnnotation1" autowire="byName"/> <!-- 이 빈은 이름으로 자동 주입됨,  -->
+	<bean id="storeBean1" class="com.spring5.dto.Store" /> <!-- InjectionAnnotation1와 타입 일치하지 않기 때문에 빈 객체 자동주입 안됨 -->
+	<bean id="storeBean2" class="com.spring5.dto.Store"/>
+
+	
+	<bean id="obj2" class="com.spring5.test.InjectionAnnotation2" autowire="byType"/> <!-- 이 빈은 타입으로 자동 주입됨 -->
+	<bean id="shopBean1" class="com.spring5.dto.Shop" />
+	
+	<bean id="markBean1" class="com.spring5.dto.Market" />
+	<bean id="obj3" class="com.spring5.test.InjectionAnnotation3" autowire="constructor"/>
+
+	<bean id="obj4" class="com.spring5.test.InjectionAnnotation4" autowire="constructor">
+		<constructor-arg value="1000" index="0" type="int"/> <!-- 처음으로 실행? -->
+		<constructor-arg value="문자열데이터" index="1"/>
+	</bean>
+
+	
+    <context:annotation-config/> <!-- annotation으로 걸겠다 -->
+</beans>
